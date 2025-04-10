@@ -28,10 +28,10 @@ export default function RootLayout({
       <body
         className={`bg-linear-to-tr from-backgroud to-blue-500 ${geistSans.variable} ${geistMono.variable} antialiased grid grid-flow-col items-center justify-items-center p-5 min-h-screen`}
       >
-        <div className="items-center bg-greyterm max-w-7xl size-full shadow-[12px_12px_rgba(0,0,0,1)] flex flex-col">
+        <div className="items-center bg-greyterm max-w-7xl size-full shadow-[12px_12px_rgba(0,0,0,1)] flex flex-col border-raised">
           <Navigation />
-          <div className="p-5 size-full">
-            <div className="border border-white size-full">{children}</div>
+          <div className="p-3 size-full">
+            <div className="border-sunk size-full bg-white">{children}</div>
           </div>
         </div>
       </body>

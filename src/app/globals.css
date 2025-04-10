@@ -27,3 +27,20 @@
     font-family: Arial, Helvetica, sans-serif;
   }
 }
+
+@layer components {
+  .border-sunk {
+    border-width: 2px;
+    border-top-color: var(--color-neutral-600);
+    border-right-color: var(--color-neutral-100);
+    border-bottom-color: var(--color-neutral-100);
+    border-left-color: var(--color-neutral-600);
+  }
+  .border-raised {
+    border-width: 2px;
+    border-top-color: var(--color-neutral-100);
+    border-right-color: var(--color-neutral-600);
+    border-bottom-color: var(--color-neutral-600);
+    border-left-color: var(--color-neutral-100);
+  }
+}
