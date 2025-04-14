@@ -10,7 +10,7 @@ export default async function MarkdownPage({ path }: { path: string }) {
     );
   } catch (err) {
     console.error("failed to load markdown page");
-    return <>Something went wrong!</>;
+    return <>Something went wrong!</>; // TODO: Route this to error page.
   }
   return (
     <main className="flex flex-col p-5">
