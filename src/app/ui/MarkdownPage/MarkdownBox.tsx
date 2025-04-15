@@ -58,7 +58,7 @@ export default function MarkdownBox({ markdown }: { markdown: string }) {
           </div>
         ),
         code: ({ children, node, ...rest }) => (
-          <div className="my-3 p-2 bg-gray-300 overflow-auto max-w-screen">
+          <div className="my-3 p-2 bg-gray-300 border border-gray-400 overflow-auto max-w-screen">
             <code {...rest}>{children}</code>
           </div>
         ),
