@@ -1,7 +1,5 @@
 "use client";
 
-import Dropdown from "./Dropdown";
-
 export default function Navigation() {
   return (
     <div className="flex flex-col m-x-3 w-full">

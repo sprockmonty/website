@@ -8,7 +8,7 @@ export default async function MarkdownPage({ path }: { path: string }) {
       `./src/app/${path === "" ? "" : path + "/"}page.md`,
       "utf8",
     );
-  } catch (err) {
+  } catch {
     console.error("failed to load markdown page");
     return <>Something went wrong!</>; // TODO: Route this to error page.
   }

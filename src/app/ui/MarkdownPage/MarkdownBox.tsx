@@ -57,7 +57,9 @@ export default function MarkdownBox({ markdown }: { markdown: string }) {
             </div>
           </div>
         ),
-        code: ({ children, node, ...rest }) => (
+        // We don't need the node param, we just don't want it in ...rest.
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        code: ({ children, node: _, ...rest }) => (
           <div className="my-3 p-2 bg-gray-300 border border-gray-400 overflow-auto max-w-screen">
             <code {...rest}>{children}</code>
           </div>

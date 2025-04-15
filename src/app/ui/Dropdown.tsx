@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, Ref, RefObject, useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 interface DropdownProps {
   name: string;
