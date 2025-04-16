@@ -10,7 +10,7 @@ interface breadcrumbsProps {
 
 export default function Breadcrumbs({ home, className }: breadcrumbsProps) {
   // filter here removes the empty home path created by the first "/" in the path after the split.
-  let crumbs = usePathname()
+  const crumbs = usePathname()
     .split("/")
     .filter((path) => path);
   crumbs.unshift(home);
