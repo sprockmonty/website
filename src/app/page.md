@@ -1,5 +1,5 @@
 # Welcome to my website
-I have seen a few people mention the idea of a digital garden recently, and since I don't currently have the space for a real one, I thought I might give it a go. The seeds are still being planted though, so come back in a bit when there are some flowers to browse among.
+I have seen a few people mention the idea of a digital garden recently, and since I don't currently have the space for a real one, I thought I might give it a go. The seeds are still being planted though, so come back in a bit when there are some flowers to browse among. In the meantime, maybe you would be interested in a quick look at my [resume](resume), or maybe some of my projects (including this website) on my [github](https://github.com/sprockmonty).
 
 ***
 

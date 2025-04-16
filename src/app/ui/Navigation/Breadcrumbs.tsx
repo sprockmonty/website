@@ -18,13 +18,25 @@ export default function Breadcrumbs({ home, className }: breadcrumbsProps) {
     <ol className={`flex flex-row ${className}`}>
       {crumbs.map((crumb, index) => {
         const href = `/${crumbs.slice(1, index + 1).join("/")}`;
-        const isLastCrumb = index !== crumbs.length - 1;
+        const isLastCrumb = index === crumbs.length - 1;
+        crumb = crumb
+          .replaceAll("-", " ")
+          .toLowerCase()
+          .replace(/(?:^|\s|["'([{])+\S/g, (match) => match.toUpperCase());
         return (
           <li className="flex flex-row" key={href}>
-            <Link className={isLastCrumb ? "font-bold" : ""} href={href}>
-              {crumb}
-            </Link>
-            <div className="mx-1">{isLastCrumb && <p>/</p>}</div>
+            {isLastCrumb ? (
+              <Link href={href}>{crumb}</Link>
+            ) : (
+              <>
+                <Link className="font-bold hover:underline" href={href}>
+                  {crumb}
+                </Link>
+                <div className="mx-1">
+                  <p>/</p>
+                </div>
+              </>
+            )}
           </li>
         );
       })}
