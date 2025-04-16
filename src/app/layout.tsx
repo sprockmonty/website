@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navigation from "@/app/ui/Navigation";
+import Navigation from "@/app/ui/Navigation/Navigation";
 import { geistMono, geistSans, mapleMono } from "@/app/fonts";
 
 export const metadata: Metadata = {
