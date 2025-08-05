@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/app/ui/Navigation/Navigation";
 import { geistMono, geistSans, mapleMono } from "@/app/fonts";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Nathan Davey",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">
