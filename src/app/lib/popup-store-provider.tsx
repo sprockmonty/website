@@ -25,9 +25,9 @@ export default function PopupsStoreProvider({
   );
 }
 
-export function usePopupsStore<T>(selector: (store: PopupsStore) => T): T {
+export function usePopupsStore<T,>(selector: (store: PopupsStore) => T,): T {
   const popupsStoreContext = useContext(PopupsStoreContext);
-  if (!PopupsStoreContext) {
+  if (!popupsStoreContext) {
     throw new Error(`usePopupsStore must be used within PopupsStoreProvider`);
   }
   return useStore(popupsStoreContext, selector);

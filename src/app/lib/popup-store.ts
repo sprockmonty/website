@@ -17,13 +17,13 @@ export const createPopupsStore = () => {
     popups: {},
     addPopup: (key: string, popup: PopupT) =>
       set((state) => {
-        let popups = state.popups;
+        const popups = state.popups;
         popups[key] = popup;
         return { popups: popups };
       }),
     removePopup: (key: string) =>
       set((state) => {
-        let popups = state.popups;
+        const popups = state.popups;
         delete popups[key];
         return { popups: popups };
       }),

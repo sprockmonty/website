@@ -10,7 +10,7 @@ export default function Navigation() {
         home="Nathan Davey"
       />
       <div className="flex flex-row px-2">
-        <Dropdown name="File" menuItems={[<OpenPopup />]} />{" "}
+        <Dropdown name="File" menuItems={[<OpenPopup key={0}/>]} />{" "}
         {/* TODO: keep this alive when dropdown disappears using global state, rather than by just hiding component, as is currently implemented */}
       </div>
     </div>

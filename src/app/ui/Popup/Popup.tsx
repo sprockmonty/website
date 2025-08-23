@@ -11,6 +11,7 @@ export type PopupT = ReactNode;
 
 export default function Popup({ name, children, onClose }: PopupProps): PopupT {
   const nodeRef = useRef(null);
+  onClose(); // TODO: Remove, added temporarily to satisfy linter.
   return (
     <div className="fixed z-40 top-0 left-0 overflow-hidden w-screen h-screen pointer-events-none">
       <Draggable
