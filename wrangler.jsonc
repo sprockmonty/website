@@ -1,6 +1,6 @@
 {
   "main": ".open-next/worker.js",
-  "name": "website",
+  "name": "nathandavey-website",
   "compatibility_date": "2025-08-23",
   "compatibility_flags": [
     "nodejs_compat"
