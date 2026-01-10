@@ -35,7 +35,7 @@ export default async function Home() {
       <div className="my-4 flex flex-col">
         <div className="grid grid-cols-3 gap-4">
           <h2 className="col-span-2 text-base text-wrap text-[#0307ab]">
-            Full-stack Engineer | Nix Europe
+            Full-stack Engineer | Contractor
           </h2>
           <div className="flex justify-end">
             <h2 className="text-base text-[#0307ab]">
