@@ -2,18 +2,16 @@
 
 import { useState } from "react";
 import Popup from "@/app/ui/Popup/Popup";
-import { buttonTags } from "@/app/ui/Dropdown";
+import Button from "@/app/ui/Button";
 
 export default function OpenPopup() {
   const [pop, setPop] = useState(false);
   return (
     <>
-      <button className={buttonTags} onClick={() => setPop(true)}>
-        Open...
-      </button>
+    <Button onClick={() => setPop(true)}/>
       {pop && (
         <Popup name="Open" onClose={() => setPop(false)}>
-          <p>Wagwan</p>
+          <p>Hello There</p>
         </Popup>
       )}
     </>

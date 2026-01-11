@@ -1,5 +1,7 @@
 # Declarative Developer Environments
 
+> This article was hand crafted without the use of AI.
+
 ## TLDR
 Learn to set up your own portable dockerized dev environment, similar idea to a
 declarative OS (e.g. NixOS), but (mostly) OS agnostic. Save your setup in a
@@ -96,8 +98,8 @@ On the host OS, let's create a new folder called `build` in some forsaken part
 of our drive, and start editing our Dockerfile. 
 
 ```bash
-mkdir build
-vi build/Dockerfile
+$ mkdir build
+$ vi build/Dockerfile
 ```
 
 I'm going to use arch for my container base OS (by the way), as it generally
@@ -107,7 +109,7 @@ available, `base` and `base-devel`. Base is missing a few build packages which
 I need for compiling neovim packages (`which`, `make` etc.), so I'll go with
 `base-devel`.
 
-```Dockerfile
+```dockerfile
 # ... inside build/Dockerfile
 FROM archlinux:base-devel
 ```
@@ -122,7 +124,7 @@ I'll then add my preferred terminal emulator
 well as some dependencies for some neovim packages and additional quality of
 life tools.
 
-```Dockerfile
+```dockerfile
 # ... inside build/Dockerfile
 RUN pacman -Syu --noconfirm kitty neovim fish starship git startup-notification fzf bat ripgrep fd go nodejs jq nnn
 
@@ -131,7 +133,7 @@ RUN pacman -S --noconfirm xsel wlroots
 ```
 
 We can also add browsers, GUI applications, and maybe even VLC for the occasional movie.
-```Dockerfile
+```dockerfile
 # ... inside build/Dockerfile
 # Libreoffice
 RUN pacman -S --noconfirm libreoffice-fresh hunspell-en_gb
@@ -178,8 +180,8 @@ Lets start with the first two steps.
 Inside our build folder, lets create our start script:
 
 ```bash
-touch build/start.sh && chmod +x build/start.sh
-vi build/start.sh
+$ touch build/start.sh && chmod +x build/start.sh
+$ vi build/start.sh
 ```
 
 Inside the `start.sh` script, we'll start by building our image we created in
@@ -229,8 +231,8 @@ distrobox assemble create
 
 Lets have a test. Execute the following commands to spin up the environment and enter it for the first time:
 ```bash
-./start.sh
-distrobox enter dev-env
+$ ./start.sh
+$ distrobox enter dev-env
 ```
 
 You can take a moment to poke around. The astute among you will realise that
@@ -260,7 +262,7 @@ existing* configs.
 We'll start by creating a config directory to store our files.
 
 ```bash
-mkdir config
+$ mkdir config
 ```
 
 Next, we want a quick way to launch into terminal which has all our fresh
@@ -315,7 +317,7 @@ fish, we can just add that to our fish config:
 
 ```bash
 # ... inside config/fish/config.fish
-	export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 ```
 
 ## From Host to Box and Box to Host
@@ -339,7 +341,7 @@ to the host OS, in the form of `distrobox-export`. For example, you can run
 this command inside the box:
 
 ```bash
-distrobox-export --app vlc
+$ distrobox-export --app vlc
 ```
 
 Now vlc is available on our host. When we open the app from the host, vlc still
@@ -355,7 +357,7 @@ box container.
 
 You can do the same with the binaries themselves, e.g. 
 ```bash
-distrobox-export --bin /usr/bin/nvim --export-path ~/bin/nvim
+$ distrobox-export --bin /usr/bin/nvim --export-path ~/bin/nvim
 ```
 
 Which will place a link to nvim in `~/bin/nvim` on our host.
@@ -384,13 +386,13 @@ complicated](https://distrobox.it/useful_tips/#using-docker-inside-a-distrobox)
 and I don't like it. One docker is enough thank you very much.
 So, to import the host docker command into our box, we can create a symlink to the docker binary:
 ```bash
-ln -s /usr/bin/distrobox-host-exec /usr/local/bin/docker
+$ ln -s /usr/bin/distrobox-host-exec /usr/local/bin/docker
 ```
 
 Now when we run `minikube start`, it works as expected (I hope it does for you too).
 But it's kind of funny, we can run `docker ps` and inspect our own container from inside our container:
 ```bash
-docker ps
+$ docker ps
 CONTAINER ID   IMAGE      COMMAND                  CREATED        STATUS      PORTS     NAMES
 0bee5655adad   dev-env   "/usr/bin/entrypoint…"   6 months ago   Up 3 days             dev-env
 ```
@@ -429,8 +431,8 @@ i3, and run the `start.sh` script. Actually, that's more dependencies than I pro
 
 Here are the final configs:
 
-### build/Dockerfile
-```Dockerfile
+### Dockerfile
+```dockerfile
 FROM archlinux:base-devel
 
 RUN pacman -Syu --noconfirm kitty neovim fish starship git startup-notification fzf bat ripgrep fd go nodejs jq nnn
@@ -453,7 +455,14 @@ RUN pacman -S --noconfirm ffmpeg vlc-plugin-ffmpeg
 RUN pacman -S --noconfirm firefox
 ```
 
-### build/start.sh
+### distrobox.ini
+```ini
+[dev-env]
+image=dev-env
+replace=true
+```
+
+### start.sh
 ```bash
 #!/bin/bash
 if docker -h ; then 

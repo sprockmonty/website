@@ -1,14 +1,16 @@
 import Markdown from "react-markdown";
-import highlight from "remark-sugar-high";
 import gfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import Link from "next/link";
 import Image from "next/image";
+import * as _ from "lodash";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { coldarkCold } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export default function MarkdownBox({ markdown }: { markdown: string }) {
   return (
     <Markdown
-      remarkPlugins={[gfm, highlight]}
+      remarkPlugins={[gfm]}
       rehypePlugins={[rehypeRaw]}
       components={{
         h1: ({ children }) => (
@@ -48,6 +50,9 @@ export default function MarkdownBox({ markdown }: { markdown: string }) {
         ul: ({ children }) => (
           <ol className="list-disc list-inside my-1">{children}</ol>
         ),
+        p: ({ children }) => (
+          <p className="my-1">{children}</p>
+        ),
         hr: () => (
           <div className="relative my-5">
             <hr className="m-5 border-gray-300 border-1" />
@@ -59,11 +64,24 @@ export default function MarkdownBox({ markdown }: { markdown: string }) {
         ),
         // We don't need the node param, we just don't want it in ...rest.
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        code: ({ children, node: _, ...rest }) => (
-          <div className="my-3 p-2 bg-gray-300 border border-gray-400 overflow-auto max-w-screen">
-            <code {...rest}>{children}</code>
-          </div>
-        ),
+        code: ({ children, className, node, ...rest }) => {
+          const isSingleQuoteCode = _.isEmpty(className) && node?.children.some(
+            child => !_.isEmpty(child?.position)
+          )
+          if (isSingleQuoteCode) {
+            return (
+              <mark className="bg-gray-300 border border-gray-400 font-mono">
+                {children}
+              </mark>
+            )
+          }
+          const match = /language-(\w+)/.exec(className || '')?.[1] ?? "text"
+          return (
+            <SyntaxHighlighter language={match} style={coldarkCold} PreTag="div">
+              {String(children).replace(/\n$/, '')}
+            </SyntaxHighlighter>
+          );
+        },
       }}
     >
       {markdown}

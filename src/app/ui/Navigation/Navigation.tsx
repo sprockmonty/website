@@ -1,6 +1,7 @@
 import Dropdown from "@/app/ui/Dropdown";
 import Breadcrumbs from "@/app/ui/Navigation/Breadcrumbs";
-import OpenPopup from "@/app/ui/Popup/OpenPopup";
+import Button from "@/app/ui/Button";
+import Link from "next/link";
 
 export default function Navigation() {
   return (
@@ -10,7 +11,10 @@ export default function Navigation() {
         home="Nathan Davey"
       />
       <div className="flex flex-row px-2">
-        <Dropdown name="File" menuItems={[<OpenPopup key={0}/>]} />{" "}
+        <Dropdown name="File" menuItems={[
+          <Button key={0}><Link href={"/articles"}>Articles...</Link></Button>,
+          <Button key={0}><Link href={"/resume"}>Resume</Link></Button>
+        ]} />
         {/* TODO: keep this alive when dropdown disappears using global state, rather than by just hiding component, as is currently implemented */}
       </div>
     </div>
