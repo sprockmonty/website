@@ -1,5 +1,5 @@
 # Welcome to my website
-I hope you enjoy your visit. At the moment, there is only one [article](/articles/declarative-dev-environments) on how to create your own portable declarative dev environment, but hopefully it's a nice article. In the future there will hopefully be more. In the meantime, maybe you would be interested in a quick look at my [resume](/resume), or maybe some of my projects (including this website) on my [github](https://github.com/sprockmonty).
+I hope you enjoy your visit. At the moment, there is only one [article](/articles/declarative-dev-environments) on how to create your own portable declarative dev environment, but hopefully it's a nice article. In the future there will hopefully be more. In the meantime, maybe you would be interested in a quick look at my [resume](/resume).
 
 ***
 

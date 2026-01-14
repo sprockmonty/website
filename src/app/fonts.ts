@@ -10,7 +10,21 @@ export const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
+export const elstob = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Elstob.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Elstob-Italic.woff2',
+      weight: '400',
+      style: 'italic',
+    },
+  ],
+  variable: "--font-elstob-base",
+})
 export const mapleMono = localFont({
   src: [
     {
@@ -104,5 +118,5 @@ export const mapleMono = localFont({
       style: "italic",
     },
   ],
-  variable: "--font-maple",
+  variable: "--font-maple-mono",
 });

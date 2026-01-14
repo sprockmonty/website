@@ -70,14 +70,14 @@ export default function MarkdownBox({ markdown }: { markdown: string }) {
           )
           if (isSingleQuoteCode) {
             return (
-              <mark className="bg-gray-300 border border-gray-400 font-mono">
+              <mark className="bg-gray-300 border border-gray-400 font-maple">
                 {children}
               </mark>
             )
           }
           const match = /language-(\w+)/.exec(className || '')?.[1] ?? "text"
           return (
-            <SyntaxHighlighter language={match} style={coldarkCold} PreTag="div">
+            <SyntaxHighlighter language={match} style={coldarkCold} PreTag="div" codeTagProps={{ className: "font-maple" }}>
               {String(children).replace(/\n$/, '')}
             </SyntaxHighlighter>
           );
