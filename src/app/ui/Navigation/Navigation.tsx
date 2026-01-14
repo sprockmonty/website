@@ -12,8 +12,12 @@ export default function Navigation() {
       />
       <div className="flex flex-row px-2">
         <Dropdown name="File" menuItems={[
-          <Button key={0}><Link href={"/articles"}>Articles...</Link></Button>,
-          <Button key={0}><Link href={"/resume"}>Resume</Link></Button>
+          <Button className={"text-left w-full"} key={0}>
+            <Link href={"/articles"}>Articles...</Link>
+          </Button>,
+          <Button className={"text-left w-full"} key={0}>
+            <Link href={"/resume"}>Resume</Link>
+          </Button>,
         ]} />
         {/* TODO: keep this alive when dropdown disappears using global state, rather than by just hiding component, as is currently implemented */}
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
+import Button from "./Button";
 
 interface DropdownProps {
   name: string;
@@ -18,9 +19,6 @@ export interface MenuItemAction {
 function isMenuItemAction(item: MenuItem): item is MenuItemAction {
   return (item as MenuItemAction).onClick !== undefined;
 }
-
-export const buttonTags =
-  "px-1 hover:underline cursor-pointer hover:bg-blue-800 hover:text-white";
 
 export default function Dropdown({
   name,
@@ -48,27 +46,27 @@ export default function Dropdown({
 
   return (
     <div ref={ref} className={`relative ${className ?? ""}`}>
-      <button
-        className={`border-raised ${buttonTags}`}
+      <Button
+        className={"border-raised"}
         onClick={() => setIsExpanded(!isExpanded)}
       >
         {name}
-      </button>
+      </Button>
       {isExpanded && (
         <div className="flex flex-col absolute bg-greyterm size-max z-10 left-0 border-raised">
           {menuItems.map((menuItem, index) => {
             return (
               <div key={index}>
                 {isMenuItemAction(menuItem) ? (
-                  <button
-                    className={`text-left w-full ${buttonTags}`}
+                  <Button
+                    className={"text-left w-full"}
                     onClick={() => {
                       setIsExpanded(false);
                       menuItem.onClick();
                     }}
                   >
                     {menuItem.name}
-                  </button>
+                  </Button>
                 ) : (
                   <div onClick={() => setIsExpanded(false)}>{menuItem}</div>
                 )}

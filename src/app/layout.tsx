@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-linear-to-tr from-background to-blue-500 ${geistSans.variable} ${geistMono.variable} ${mapleMono.variable} antialiased grid grid-flow-col items-center justify-items-center md:p-5 min-h-screen max-w-screen`}
+        className={`bg-linear-to-tr from-background to-blue-500 ${geistSans.variable} ${geistMono.variable} ${mapleMono.variable} antialiased grid grid-flow-col items-center justify-items-center md:p-5 min-h-screen max-w-screen overflow-y-scroll`}
       >
         <div className="items-center bg-greyterm max-w-7xl size-full shadow-[12px_12px_rgba(0,0,0,1)] flex flex-col border-raised overflow-auto">
           <div className="px-1 w-full">

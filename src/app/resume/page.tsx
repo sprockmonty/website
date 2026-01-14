@@ -10,23 +10,16 @@ export default async function Home() {
           building scalable, cloud systems and full-stack applications.
         </p>
 
-        <Link
-          className="px-1 italic hover:underline text-[#080b9a]"
-          href="https://github.com/sprockmonty"
-        >
-          github.com/sprockmonty
-        </Link>
-
-        <Link
-          className="px-1 italic hover:underline text-[#080b9a]"
-          href="https://linkedin.com/in/nathan-davey"
-        >
-          linkedin.com/nathan-davey
-        </Link>
-
         <p className="px-1">Native English Speaker</p>
 
-        <p className="px-1">EU citizen with right to work in Hungary</p>
+        <p className="px-1">UK/EU citizen with right to work in UK/Europe</p>
+        <Link
+          className="col-span-2 px-1 italic hover:underline text-[#080b9a]"
+          href="mailto:ndavey-enquiries@outlook.com"
+        >
+          ndavey-enquiries@outlook.com
+        </Link>
+
       </div>
       <h1 className="text-2xl font-thin text-[#2c2b30] mt-1">
         WORK EXPERIENCE
@@ -150,7 +143,7 @@ export default async function Home() {
       <div className="my-4 flex flex-col">
         <div className="grid grid-cols-3 gap-4">
           <h2 className="col-span-2 text-base text-wrap text-[#0307ab]">
-            Farmer | Church Farm Ardeley
+            Farmer | Farm in England
           </h2>
           <div className="flex justify-end">
             <h2 className="text-base text-[#0307ab]">
@@ -178,7 +171,7 @@ export default async function Home() {
       <div className="my-4 flex flex-col">
         <div className="grid grid-cols-3 gap-4">
           <h2 className="col-span-2 text-base text-wrap text-[#0307ab]">
-            Backend Engineer | Thought Machine
+            Backend Engineer | Fintech Banking Startup
           </h2>
           <div className="flex justify-end">
             <h2 className="text-base text-[#0307ab]">
@@ -282,7 +275,7 @@ export default async function Home() {
       <div className="my-4 flex flex-col">
         <div className="grid grid-cols-3 gap-4">
           <h2 className="col-span-2 text-base text-wrap text-[#0307ab]">
-            Undergraduate Computing Teaching Assistant | Imperial College London
+            Undergraduate Computing Teaching Assistant | University
           </h2>
           <div className="flex justify-end">
             <h2 className="text-base text-[#0307ab]">
@@ -311,8 +304,7 @@ export default async function Home() {
         <div className="my-1 flex flex-col">
           <div className="grid grid-cols-3 gap-4">
             <h2 className="col-span-2 text-base text-wrap text-[#0307ab]">
-              MEng Aeronautics with Spacecraft Engineering | Imperial College
-              London
+              MEng Aeronautics with Spacecraft Engineering | University
             </h2>
             <div className="flex justify-end">
               <h2 className="text-base text-[#0307ab]">

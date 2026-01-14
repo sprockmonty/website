@@ -1,13 +1,12 @@
-import { buttonTags } from "@/app/ui/Dropdown";
-import { PropsWithChildren } from "react";
+import { DetailedHTMLProps, ButtonHTMLAttributes } from "react";
 
-interface ButtonProps extends PropsWithChildren{
-  onClick?: () => void;
-}
+export const buttonTags =
+  "px-1 hover:underline cursor-pointer hover:bg-blue-800 hover:text-white";
 
-export default async function Button({ children, onClick }: ButtonProps) {
+export default function Button({ children, className = "", ...rest }:
+  DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) {
   return (<>
-    <button className={buttonTags} onClick={onClick}>
+    <button className={`${buttonTags} ${className}`} {...rest}>
       {children}
     </button>
   </>)

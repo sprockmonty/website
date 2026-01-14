@@ -14,22 +14,22 @@ export default function MarkdownBox({ markdown }: { markdown: string }) {
       rehypePlugins={[rehypeRaw]}
       components={{
         h1: ({ children }) => (
-          <h1 className="font-bold text-4xl text-[#0307ab] my-3">{children}</h1>
+          <h1 className="font-bold text-4xl text-primary my-3">{children}</h1>
         ),
         h2: ({ children }) => (
-          <h2 className="font-bold text-3xl text-[#2c2b30] my-3">{children}</h2>
+          <h2 className="font-bold text-3xl text-secondary my-3">{children}</h2>
         ),
         h3: ({ children }) => (
-          <h3 className="font-bold text-2xl text-[#0307ab] my-3">{children}</h3>
+          <h3 className="font-bold text-2xl text-primary my-3">{children}</h3>
         ),
         h4: ({ children }) => (
-          <h4 className="font-bold text-xl text-[#2c2b30] my-3">{children}</h4>
+          <h4 className="font-bold text-xl text-secondary my-3">{children}</h4>
         ),
         h5: ({ children }) => (
-          <h5 className="font-bold text-lg text-[#0307ab] my-3">{children}</h5>
+          <h5 className="font-bold text-lg text-primary my-3">{children}</h5>
         ),
         h6: ({ children }) => (
-          <h6 className="font-bold text-lg text-[#2c2b30] my-3">{children}</h6>
+          <h6 className="font-bold text-lg text-secondary my-3">{children}</h6>
         ),
         a: ({ children, href }) =>
           href == null ? (
